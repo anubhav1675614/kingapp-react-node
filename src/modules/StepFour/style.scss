@@ -1,0 +1,37 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.step4 {
+  &-label {
+    text-align: center;
+    color: $color-black;
+  }
+
+  &-mainlabel {
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 20px;
+  }
+
+  &-sublabel {
+    padding: 10px 0 20px;
+  }
+
+  &-form {
+    padding: 0 80px;
+  }
+
+  &-submitbtn {
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 19.5px;
+  }
+
+  .form-label {
+    margin-bottom: 0;
+  }
+
+  .form-control {
+    border-radius: 19.5px !important;
+  }
+}

@@ -1,0 +1,29 @@
+@import './variables.scss';
+@import './mixins.scss';
+@import '../../node_modules/font-awesome/css/font-awesome.min.css';
+
+html, body {
+  position: relative;
+  color: $color-dark;
+  font-family: $primary-font;
+  background: $body-background;
+  height: 100vh;
+  margin: 0;
+}
+
+.header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+.main-view {
+  @include flexRow;
+  justify-content: center;
+  padding-top: 80px;
+  
+  @media (max-width: $phone-width) {
+    padding-top: 40px;
+  }
+
+}

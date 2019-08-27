@@ -1,0 +1,40 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.product-item {
+  border-radius: 20px;
+  background: $color-white;
+  overflow: hidden;
+  margin: 10px 0;
+  width: 330px;
+  @include middleShadow;
+
+  &__name {
+    background: $color-grey;
+    text-align: center;
+    color: $color-black;
+    padding: 4px;
+  }
+
+  &__content {
+    @include flexRow;
+    padding: 0 20px;
+  }
+
+  &__image {
+    width: 161px;
+  }
+
+  &__count {
+    padding-left: 9px;
+    &-label {
+      text-align: center;
+    }
+
+    &-value {
+      border-radius: 15px;
+      padding: 0 8px;
+      width: 120px;
+    }
+  }
+}
