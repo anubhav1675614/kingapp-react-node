@@ -1,0 +1,7 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.logo-pos {
+  @include flexCol;
+  align-items: center;
+}

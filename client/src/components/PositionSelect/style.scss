@@ -1,0 +1,64 @@
+@import 'styles/variables.scss';
+@import 'styles/mixins.scss';
+
+.position-select {
+  @include flexRow;
+  width: 280px;
+  height: 64px;
+  background: $color-white;
+  border-radius: 32px;
+  margin-bottom: 20px;
+  padding: 8px 16px;
+  @include middleShadow;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.selected {
+    border: 3px solid $color-blue;
+  }
+
+  &__circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: $color-dark;
+  }
+
+  &__title {
+    width: 190px;
+    padding: 0 15px;
+    text-transform: uppercase;
+  }
+
+  &__maintitle {
+    font-size: 18px;
+    line-height: 18px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: $color-grey-light;
+  }
+
+  &__icon {
+    border-radius: 50%;
+    background: $color-grey;
+
+    &.selected {
+      background: $color-blue;
+    }
+  }
+
+  &__checkmark {
+    color: $color-white;
+    border-radius: 50%;
+    padding: 4px;
+    font-size: 20px;
+
+    &.selected {
+      color: $color-white;
+    }
+  }
+}
