@@ -10,6 +10,12 @@ app.post('/api/form', (req, res) => {
   // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_APIKEY)
   sgMail.setApiKey("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")
 
+  let productsEmail = ''
+  for (const item of req.body.products) {
+    const str = `<li>${item.value} ${item.name}</li>`
+    productsEmail += str
+  }
+
   const htmlEmail = `
     <ul>
       <li>Name: ${req.body.username}</li>
@@ -19,15 +25,16 @@ app.post('/api/form', (req, res) => {
       <br>
       <li>Logo Location: ${req.body.hatLogoPos}</li>
       <br>
+      ${productsEmail}
     </ul>
-    <img src="blob:http://localhost:3000/06f4528b-d5de-4026-b582-27e01493d91c" alt="logoimage"></img>
+    <img src="https://storage.googleapis.com/psl-ssk-ppa34-pqq54sllls-imgsvr/hse1.jpg" alt="logoimage"></img>
   `
 //    <img src=${req.body.hatLogoImage.preview} alt="logoimage"></img>
 
-  console.log(req.body)
+  console.log(htmlEmail)
 
   const msg = {
-    to: ['marcelwayne87@gmail.com'], //'sales@kingclothing.com',
+    to: ['globeubiquitous@gmail.com'], //'sales@kingclothing.com',
     from: req.body.useremail,
     subject: 'Online Order Request',
     text: 'and easy to do anywhere, even with Node.js',

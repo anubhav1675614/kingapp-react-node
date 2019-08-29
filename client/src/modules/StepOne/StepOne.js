@@ -29,12 +29,7 @@ class StepOne extends Component {
     return (
       <div className="step1">
         <div className="step media-item">
-          <Dropzone
-            onDrop={this.onDrop}
-            accept={'image/*'}
-            multiple={false}
-            className="media-item__dropzone"
-          >
+          <Dropzone onDrop={this.onDrop} accept={'image/*'} multiple={false}>
             {({ getRootProps, getInputProps }) => (
               <section>
                 <div {...getRootProps()}>

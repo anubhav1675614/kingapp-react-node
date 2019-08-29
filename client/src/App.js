@@ -5,7 +5,6 @@ import { store } from './store';
 import history from 'browserHistory';
 
 import Container from 'components/Container';
-import Home from 'modules/Home';
 import StepOne from 'modules/StepOne';
 import StepTwo from 'modules/StepTwo';
 import StepThree from 'modules/StepThree';
@@ -19,7 +18,6 @@ function App() {
       <Router history={history}>
         <Container className="main-view">
           <Switch>
-            {/*<Route exact path="/" component={Home} />*/}
             <Route path="/step1" component={StepOne} />
             <Route path="/step2" component={StepTwo} />
             <Route path="/step3" component={StepThree} />

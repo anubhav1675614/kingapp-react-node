@@ -25,5 +25,22 @@ html, body {
   @media (max-width: $phone-width) {
     padding-top: 40px;
   }
+}
 
+
+.step {
+  width: 730px;
+  height: 680px;
+  background: $step-background;
+
+  &-title {
+    font-size: 22px;
+    text-align: center;
+    color: $color-black;
+    padding: 10px 0 20px;
+  }
+
+  @media (max-width: $phone-width) {
+    width: 100%;
+  }
 }
