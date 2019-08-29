@@ -9,7 +9,6 @@ const initialState = {
 const kingReducer = (state = initialState, action) => {
   switch (action.type) {
     case King.SET_HAT_LOGO_IMAGE:
-      console.log(action.image);
       return { ...state, hatLogoImage: action.image };
     case King.SET_HAT_LOGO_POS:
       return { ...state, hatLogoPos: action.position };

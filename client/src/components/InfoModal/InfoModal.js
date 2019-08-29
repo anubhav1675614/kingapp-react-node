@@ -7,32 +7,12 @@ import './style.scss';
 // @NOTE this is uncontrolled modal by intention
 // @TODO add variety to icon class for color
 class InfoModal extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      show: !!props.show
-    };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.show && !this.props.show) {
-      this.setState({ show: true });
-    }
-  }
-
   onClick = () => {
-    this.handleHide();
     this.props.onClick();
   };
 
-  handleHide = () => {
-    this.setState({ show: false });
-    this.props.handleHide();
-  };
-
   render() {
-    const { show } = this.state;
-    const { icon, title, children, buttonText } = this.props;
+    const { show, icon, title, children, buttonText } = this.props;
     return (
       <Modal show={show} onHide={this.handleHide} dialogClassName="info-modal">
         <Modal.Header>

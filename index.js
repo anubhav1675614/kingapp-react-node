@@ -1,13 +1,14 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+
 const sgMail = require('@sendgrid/mail');
 const app = express()
 
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.post('/api/form', (req, res) => {
-  // sgMail.setApiKey(process.env.REACT_APP_SENDGRID_APIKEY)
   sgMail.setApiKey("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")
 
   let productsEmail = ''
@@ -15,6 +16,8 @@ app.post('/api/form', (req, res) => {
     const str = `<li>${item.value} ${item.name}</li>`
     productsEmail += str
   }
+
+  const imageb64 = req.body.hatLogoImage.replace('data:image/png;base64,', '');
 
   const htmlEmail = `
     <ul>
@@ -27,18 +30,21 @@ app.post('/api/form', (req, res) => {
       <br>
       ${productsEmail}
     </ul>
-    <img src="https://storage.googleapis.com/psl-ssk-ppa34-pqq54sllls-imgsvr/hse1.jpg" alt="logoimage"></img>
+    <img src="cid:myimagecid"/>
   `
-//    <img src=${req.body.hatLogoImage.preview} alt="logoimage"></img>
-
-  console.log(htmlEmail)
 
   const msg = {
-    to: ['globeubiquitous@gmail.com'], //'sales@kingclothing.com',
+    to: ['globeubiquitous@gmail.com'], //'sales@kingclothing.com', 
     from: req.body.useremail,
     subject: 'Online Order Request',
-    text: 'and easy to do anywhere, even with Node.js',
-    html: htmlEmail
+    html: htmlEmail,
+    attachments: [
+      {
+        filename: "hatlogo.png",
+        content: imageb64,
+        content_id: "myimagecid",
+      }
+    ]
   }
   sgMail.send(msg)
   res.send('{"message":"Email sent."}');

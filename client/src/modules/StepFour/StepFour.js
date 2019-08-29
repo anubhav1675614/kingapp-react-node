@@ -64,7 +64,7 @@ class StepFour extends Component {
         this.setState({ sent: true });
       })
       .catch(err => {
-        console.log('err', err);
+        console.error('--Email Send--', err);
       });
   }
 

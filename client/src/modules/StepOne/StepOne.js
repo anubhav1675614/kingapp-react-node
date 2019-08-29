@@ -8,13 +8,19 @@ import history from 'browserHistory';
 import './style.scss';
 
 class StepOne extends Component {
-  componentDidMount() {
-    console.log('did mount');
-  }
-
   onDrop = files => {
-    files.map(file => Object.assign(file, { preview: URL.createObjectURL(file) }));
-    this.props.setHatLogoImage(files[0]);
+    // files.map(file => Object.assign(file, { preview: URL.createObjectURL(file) }));
+    // this.props.setHatLogoImage(files[0]);
+
+    const reader = new FileReader();
+    reader.readAsDataURL(files[0]);
+
+    reader.onabort = () => console.log('file reading was aborted');
+    reader.onerror = () => console.log('file reading has failed');
+    reader.onload = () => {
+      const binaryStr = reader.result;
+      this.props.setHatLogoImage(binaryStr);
+    };
   };
 
   onNext = () => {
@@ -23,8 +29,6 @@ class StepOne extends Component {
 
   render() {
     const { hatLogoImage } = this.props;
-
-    console.log('render', hatLogoImage);
 
     return (
       <div className="step1">
@@ -45,7 +49,7 @@ class StepOne extends Component {
             )}
           </Dropzone>
           {hatLogoImage && (
-            <img src={hatLogoImage.preview} className="media-item__preview" alt="logoimage" />
+            <img src={hatLogoImage} className="media-item__preview" alt="logoimage" />
           )}
         </div>
         <FooterSection isPrev={false} onNext={this.onNext} isDisabled={!hatLogoImage} />

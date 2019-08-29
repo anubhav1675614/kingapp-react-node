@@ -32,8 +32,6 @@ class StepTwo extends Component {
   render() {
     const { hatLogoPos } = this.props;
 
-    console.log('step2', hatLogoPos);
-
     return (
       <div className="step2">
         <div className="step logo-pos">
