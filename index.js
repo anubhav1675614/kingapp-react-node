@@ -9,7 +9,7 @@ app.use(bodyParser.json({ limit: "50mb" }))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.post('/api/form', (req, res) => {
-  sgMail.setApiKey("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")
+  sgMail.setApiKey(env.SENDGRID_APIKEY)
 
   let productsEmail = ''
   for (const item of req.body.products) {
@@ -34,7 +34,7 @@ app.post('/api/form', (req, res) => {
   `
 
   const msg = {
-    to: ['globeubiquitous@gmail.com'], //'sales@kingclothing.com', 
+    to: ['sales@kingclothing.com'],
     from: req.body.useremail,
     subject: 'Online Order Request',
     html: htmlEmail,

@@ -2,8 +2,8 @@
   "name": "king",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://tannerkozlowski@bitbucket.org/Cafloatconcepts/king-app.git",
-  "author": "Tanner Kozlowski <tanner.kozlowski@gmail.com>",
+  "repository": "https://github.com/tok-git/kingapp-react-node",
+  "author": "TK",
   "license": "MIT",
   "dependencies": {
     "@sendgrid/mail": "^6.4.0",
